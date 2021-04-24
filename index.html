@@ -1,0 +1,41 @@
+<!DOCTYPE html>    
+<!-- проверка  репа измен 111 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@next"></script>
+ <link rel="stylesheet" href="bootstrap.min.css">
+ <link rel="stylesheet" href="styles.css">
+ <script src="vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="sample">
+      <input type="text" v-model="name" v-on:click="alertInput">
+      <hr>
+      <h2>Hello, {{ name }}</h2>
+    </div>
+  </div>
+  <script>
+
+    let app = Vue.createApp({
+      data: () => ({
+        name: ''
+      })
+    });
+
+      methods:  () => ({
+        alertInput() {
+          alert('name')
+        }
+      })
+    
+    app.mount('.sample')
+    
+
+  </script>
+</body>
+</html>

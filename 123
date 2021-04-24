@@ -1,0 +1,11 @@
+    
+    
+    
+    
+    let app = Vue.createApp(){
+      data: () => ({
+        name: ''
+      })
+    })
+    
+    app.mount('.sample')
