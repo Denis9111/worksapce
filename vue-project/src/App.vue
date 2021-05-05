@@ -1,31 +1,29 @@
 <template>
   <div>
-    <h1>Parent: {{ carName }}</h1>
-    <app-car
-    :carName="carName"
-    :carYear="carYear"
-    @nameChangeddd= "carName = $event"
-    :changeFunc="changeNametoAudi"
-    ></app-car>
+    <h1>{{ title }}</h1>
+
+    <input type="text" v-model="searchName">
+    <ul>
+      <li v-for="name of filteredNames">{{ name }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
-import Car from './Car.vue'
 
 export default {
   data () {
     return {
-      carName: 'Ford',
-      carYear: 2020
+      title: 'Hello i am vue',
+      searchName: '',
+      names: ['vlad', 'max', 'elena', 'igor']
     }
   },
-  components: {
-    appCar: Car
-  },
-  methods: {
-    changeNametoAudi() {
-      this.carName = 'Audi'
+  computed: {
+    filteredNames() {
+      return this.names.filter(name => {
+        return name.toLowerCase().indexOf(this.searchName.toLowerCase()) !==-1
+      })
     }
   }
 }
